@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<VBox id="calculator" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="displayExpression" id="displayExpression"/>
+    <Label fx:id="display" id="display" />
+    <HBox>
+        <Button fx:id="clear" text="C"/>
+        <Button text=""/>
+        <Button text=""/>
+        <Button fx:id="div" text="/" styleClass="op"/>
+    </HBox>
+    <HBox>
+        <Button fx:id="sevenButton" text="7"/>
+        <Button  fx:id="eightButton" text="8"/>
+        <Button  fx:id="nineButton" text="9"/>
+        <Button fx:id="mul" text="x" styleClass="op"/>
+    </HBox>
+    <HBox>
+        <Button fx:id="fourButton" text="4"/>
+        <Button fx:id="fiveButton" text="5"/>
+        <Button fx:id="sixButton" text="6"/>
+        <Button fx:id="sub" text="-" styleClass="op"/>
+    </HBox>
+    <HBox>
+        <Button fx:id="oneButton" text="1"/>
+        <Button fx:id="twoButton" text="2"/>
+        <Button fx:id="threeButton" text="3"/>
+        <Button fx:id="add" text="+" styleClass="op"/>
+    </HBox>
+    <HBox>
+        <Button fx:id="zeroButton" text="0" styleClass="bottom"/>
+        <Button fx:id="dot" text="." styleClass="bottom"/>
+        <Button fx:id="equal" text="=" styleClass="bottom"/>
+    </HBox>
+</VBox>
