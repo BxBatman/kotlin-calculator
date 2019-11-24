@@ -59,7 +59,7 @@ class Calculator : View() {
         div.setOnMouseClicked { appendOnExpression("/"); isDot=false }
         sub.setOnMouseClicked { appendOnExpression("-"); isDot=false }
         mul.setOnMouseClicked { appendOnExpression("*"); isDot=false }
-        clear.setOnMouseClicked { displayExpression.text = ""; display.text = ""; isDot=false }
+        clear.setOnMouseClicked { displayExpression.text = ""; display.text = ""; isDot=false; disableOperatorButtons() }
         dot.setOnMouseClicked {
             if (isDot ==false) {
             appendOnExpression(".")
@@ -67,7 +67,12 @@ class Calculator : View() {
             }
         }
 
+        disableOperatorButtons()
+
         equal.setOnMouseClicked {
+            if (displayExpression.text.equals("")) {
+                displayExpression.text ="0"
+            }
 
             if(!(displayExpression.text.last().toString() in arrayOf("+","-","*","/","."))) {
                 val evaluator = Evaluator()
@@ -77,6 +82,23 @@ class Calculator : View() {
         }
     }
 
+    fun disableOperatorButtons() {
+        add.setDisable(true)
+        div.setDisable(true)
+        mul.setDisable(true)
+        sub.setDisable(true)
+        dot.setDisable(true)
+    }
+
+
+    fun enableOperatorButtons() {
+        add.setDisable(false)
+        div.setDisable(false)
+        mul.setDisable(false)
+        sub.setDisable(false)
+        dot.setDisable(false)
+    }
+
     fun appendOnExpression(string: String) {
         if(checkIfOperatorOrDotLast(string)) {
             return
@@ -84,6 +106,7 @@ class Calculator : View() {
         checkIfOperator(string)
         display.text = ""
         displayExpression.text += string
+        enableOperatorButtons()
     }
 
 
